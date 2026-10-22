@@ -1,44 +1,72 @@
 
+import Link from "next/link";
+import LivingCostCalculator from "../components/LivingCostCalculator";
+
 export default function Home() {
   return (
-    <main className="min-h-screen bg-[#f5faff]">
-      <header className="border-b border-blue-100 bg-white px-8 py-5">
-        <div className="mx-auto flex max-w-6xl items-center justify-between">
-          <h1 className="text-2xl font-bold text-blue-600">
-            부산살림
-          </h1>
-          <nav className="text-sm font-medium text-gray-600">
-            생활비 계산기 · 청년 혜택 · 동네 탐색
-          </nav>
-        </div>
-      </header>
+    <main className="min-h-screen bg-[#f4f7fc]">
+      {/* 메인 배너: 광안대교 이미지는 나중에 추가 */}
+      <section className="bg-gradient-to-b from-[#edf5ff] via-[#c6def8] to-[#f4f7fc]">
+        <div className="mx-auto max-w-6xl px-6 pb-16 pt-14">
+          <div className="mb-7">
+            <p className="mb-3 text-xs font-bold tracking-[0.2em] text-blue-600">
+              MOVESAN
+            </p>
 
-      <section className="mx-auto max-w-6xl px-8 py-24 text-center">
-        <p className="mb-4 font-semibold text-blue-500">
-          서울에서 부산으로, 새로운 시작
-        </p>
+            <h1 className="text-3xl font-extrabold leading-tight text-slate-900 md:text-4xl">
+              같은 월급, 부산에서는
+              <span className="block text-blue-600">
+                얼마나 더 남을까?
+              </span>
+            </h1>
 
-        <h2 className="mb-6 text-4xl font-bold text-gray-900">
-          부산에서 살면 얼마나 달라질까요?
-        </h2>
+            <p className="mt-4 text-sm text-slate-600">
+              서울과 부산의 월급·월세·생활비를 비교해
+              1년에 얼마나 더 모을 수 있는지 알려드려요.
+            </p>
+          </div>
 
-        <p className="mb-10 text-lg text-gray-600">
-          서울과 부산의 생활비를 비교하고
-          나에게 맞는 청년 혜택을 찾아보세요.
-        </p>
+          {/* 생활비 비교 계산기 */}
+          <LivingCostCalculator />
 
-        <div className="mx-auto max-w-xl rounded-3xl bg-white p-10 shadow-lg">
-          <h3 className="mb-4 text-2xl font-bold text-gray-900">
-            나의 부산살림 계산기
-          </h3>
+          {/* 하단 바로가기 카드 */}
+          <div className="mt-5 grid gap-4 md:grid-cols-3">
+            <Link
+              href="/neighborhood"
+              className="rounded-2xl border border-blue-100 bg-white p-5 shadow-sm transition hover:shadow-md"
+            >
+              <h3 className="font-bold text-slate-900">
+                🗺️ 부산 동네별 월세 지도
+              </h3>
+              <p className="mt-2 text-sm text-slate-500">
+                구·군별 월세 정보를 한눈에 확인해 보세요.
+              </p>
+            </Link>
 
-          <p className="mb-8 text-gray-500">
-            서울과 부산의 월급, 주거비, 생활비를 비교해 보세요.
-          </p>
+            <Link
+              href="/benefits"
+              className="rounded-2xl border border-blue-100 bg-white p-5 shadow-sm transition hover:shadow-md"
+            >
+              <h3 className="font-bold text-slate-900">
+                🏦 청년 정책·금융상품
+              </h3>
+              <p className="mt-2 text-sm text-slate-500">
+                부산에서 받을 수 있는 청년 혜택을 찾아보세요.
+              </p>
+            </Link>
 
-          <button className="rounded-xl bg-blue-600 px-8 py-4 font-semibold text-white">
-            생활비 비교 시작하기
-          </button>
+            <Link
+              href="/community"
+              className="rounded-2xl border border-blue-100 bg-white p-5 shadow-sm transition hover:shadow-md"
+            >
+              <h3 className="font-bold text-slate-900">
+                💬 무브산 커뮤니티
+              </h3>
+              <p className="mt-2 text-sm text-slate-500">
+                먼저 부산으로 옮긴 사람들의 이야기를 나눠요.
+              </p>
+            </Link>
+          </div>
         </div>
       </section>
     </main>
